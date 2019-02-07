@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
+	<id>LiamHammett:Steam</id>
+	<version>2.0</version>
+
+	<file name="$themedir/Profile.template.php">
+		<operation>
+			<search position="before"><![CDATA[<td>', $context['member']['yim']['link_text'], '</td>]]></search>
+			<add><![CDATA[</tr><tr><td><b>', $txt['steam_title'], ': </b></td>
+<td>', !empty($context['member']['options']['steam']) ? '<a href="http://steamcommunity.com/id/' . $context['member']['options']['steam'] . '" target="_blank">' . $context['member']['options']['steam'] . '</a>'  : '', '</td>
+]]></add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[<td><input type="text" name="YIM" maxlength="32" size="24" value="', $context['member']['yim']['name'], '" /></td>]]></search>
+			<add><![CDATA[</tr><tr><td><b>', $txt['steam_title'], ':</b><div class="smalltext">', $txt['steam_desc'], '</div></td>
+			<td><input type="text" name="default_options[steam]" maxlength="25" size="24" value="', @$context['member']['options']['steam'], '" /></td>
+			]]></add>
+		</operation>
+	</file>
+
+	<file name="$themedir/Display.template.php">
+		<operation>
+			<search position="before"><![CDATA[', $message['member']['yim']['link'],]]></search>
+			<add><![CDATA[
+			!empty($message['member']['options']['steam']) ? '<a href="http://steamcommunity.com/id/' . $message['member']['options']['steam'] . '" target="_blank"><img border="0" src="' . $settings['images_url'] . '/steam.gif" alt="' . $message['member']['options']['steam'] . '"></a>' : '',
+            ]]></add>
+		</operation>
+	</file>
+</modification>

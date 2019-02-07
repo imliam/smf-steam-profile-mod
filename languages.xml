@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
+	<id>LiamHammett:Steam</id>
+	<version>2.0</version>
+
+	<file name="$languagedir/Modifications.english.php">
+		<operation>
+			<search position="after"><![CDATA[?>]]></search>
+            <add><![CDATA[//Steam Profile Mod
+$txt['steam_title'] = 'Steam';
+$txt['steam_desc'] = 'Enter your Steam User ID';]]></add>
+        </operation>
+   </file>
+
+   <file name="$languagedir/Modifications.english-utf8.php" error="skip">
+		<operation>
+			<search position="after"><![CDATA[?>]]></search>
+            <add><![CDATA[//Steam Profile Mod
+$txt['steam_title'] = 'Steam';
+$txt['steam_desc'] = 'Enter your Steam User ID';]]></add>
+        </operation>
+   </file>
+</modification>
